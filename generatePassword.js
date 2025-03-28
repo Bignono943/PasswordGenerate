@@ -13,5 +13,10 @@ function generatePassword = (lenght) => {
     const allCharacter = [...lowerCase, ...upperCase, ...number, ...symbol];
     let password = '';
 
-    
-}
+    for (i = 0; i < lenght; i++) {
+        const randomIndex = Math.floor(Math.random() * allCharacter.length)
+        password += allCharacter[randomIndex];
+    }
+
+    return password;
+};
