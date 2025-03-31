@@ -24,12 +24,13 @@ function generatePassword(lenght)  {
 //const args = process.argv.slice(2); 
 
 const generateBtn = document.querySelector(".generate");
-const mdpOutput = document.querySelector(".mdp-container");
+const mdpOutput = document.querySelector("#output");
+const lengthInput = document.querySelector('#longueur');
 
 generateBtn.addEventListener('click', (event) => {
     
-    const lengthInput = document.querySelector('#longueur').value;
-    const length = Number(lengthInput.value); 
+    let lengthStr = lengthInput.value.trim();
+    let length = Number(lengthStr); 
 
     if (isNaN(length) || length <= 0) {
         mdpOutput.innerText = 'Veuillez entrer une longueur valide.';
@@ -39,4 +40,14 @@ generateBtn.addEventListener('click', (event) => {
     const generatedPassword = generatePassword(length);
     mdpOutput.innerText = `Votre mot de passe généré : ${generatedPassword}`;
 });
+
+resetBtn = document.querySelector("#reset");
+
+   
+    resetBtn.addEventListener('click', (event) => {
+        lengthInput.value = "";   
+        mdpOutput.innerText = ""; 
+        lengthInput.focus();      
+    });
+
 
