@@ -1,4 +1,4 @@
-function generatePassword = (lenght) => {
+function generatePassword(lenght)  {
 
     const lowerCase = Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i));
     const upperCase = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
@@ -20,3 +20,7 @@ function generatePassword = (lenght) => {
 
     return password;
 };
+
+//const args = process.argv.slice(2); 
+const length = 12;
+console.log(`Votre mot de passe généré : ${generatePassword(length)}`);
