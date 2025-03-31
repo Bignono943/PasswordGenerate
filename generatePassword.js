@@ -22,5 +22,21 @@ function generatePassword(lenght)  {
 };
 
 //const args = process.argv.slice(2); 
-const length = 12;
-console.log(`Votre mot de passe généré : ${generatePassword(length)}`);
+
+const generateBtn = document.querySelector(".generate");
+const mdpOutput = document.querySelector(".mdp-container");
+
+generateBtn.addEventListener('click', (event) => {
+    
+    const lengthInput = document.querySelector('#longueur').value;
+    const length = Number(lengthInput.value); 
+
+    if (isNaN(length) || length <= 0) {
+        mdpOutput.innerText = 'Veuillez entrer une longueur valide.';
+        return;
+    }
+
+    const generatedPassword = generatePassword(length);
+    mdpOutput.innerText = `Votre mot de passe généré : ${generatedPassword}`;
+});
+
